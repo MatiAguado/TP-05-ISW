@@ -1,5 +1,6 @@
 def verificar_patente(nro_patente):
-    if len(nro_patente) == 0:
+    pat1 = nro_patente.isalnum()
+    if len(nro_patente) == 0 or len(nro_patente) > 7 or pat1 == False:
         return 'Error en el numero de patente'
     else:
         return True
@@ -7,7 +8,8 @@ def verificar_patente(nro_patente):
 def determinar_precio_patentes(nroPatente, mod, valorAuto):
     modelo = mod.replace(" ","")
     valor_auto = valorAuto.replace(" ","")
-    patente = verificar_patente(nroPatente)
+    pat = nroPatente.replace(" ","")
+    patente = verificar_patente(pat)
     if patente == 'Error en el numero de patente':
         return 'Error en el numero de patente'
     if len(valor_auto) == 0:
